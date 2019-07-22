@@ -9,7 +9,7 @@ namespace Algorithms
 		static int M = 26;
 		static void Main(string[] args)
 		{
-			Console.WriteLine(isValid("aabbcd"));
+			Console.WriteLine(isValid("abcdefghhgfedecba"));
 		}
 
 		static string isValid(string s)
@@ -22,7 +22,12 @@ namespace Algorithms
 				freq[s[i] - 'a']++;
 			}
 
-			return "YES";
+			var same = freq.First(o => o != 0);
+
+			var res = freq.All(a => a == same);
+
+
+			return res ? "YES": "NO";
 		}
 	}
 }
